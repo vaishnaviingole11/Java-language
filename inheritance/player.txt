@@ -1,0 +1,69 @@
+
+class Player {
+	String  name;
+	int age;
+	String country;
+	int matchesPlayed;
+	int jerseyNumber;
+
+	Player(String name, int age, String country, int matchesPlayed, int jerseyNumber) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.country = country;
+		this.matchesPlayed = matchesPlayed;
+		this.jerseyNumber = jerseyNumber;
+	}
+
+	String getName() {
+		return name;
+	}
+
+	void setName(String name) {
+		this.name = name;
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	void setAge(int age) {
+		this.age = age;
+	}
+
+	String getCountry() {
+		return country;
+	}
+
+	void setCountry(String country) {
+		this.country = country;
+	}
+
+	int getMatchesPlayed() {
+		return matchesPlayed;
+	}
+
+	void setMatchesPlayed(int matchesPlayed) {
+		this.matchesPlayed = matchesPlayed;
+	}
+
+	int getJerseyNumber() {
+		return jerseyNumber;
+	}
+
+	void setJerseyNumber(int jerseyNumber) {
+		this.jerseyNumber = jerseyNumber;
+	}
+void display() {
+	System.out.println("name is:"+ this.name);
+	System.out.println("age is:"+this.age);
+	System.out.println("country is:"+this.country);
+	System.out.println("matchesPlayed is:"+this.matchesPlayed);
+	System.out.println("jerseyNumber is:"+this.jerseyNumber);
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

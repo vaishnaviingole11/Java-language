@@ -1,0 +1,75 @@
+
+
+class ElectricityBill{
+	int customerId;
+	String  customerName;
+	int unit;
+	static double rateperunit=9;
+	double TotalBillAmount;
+
+	ElectricityBill(int customerId, String customerName, int unit) {
+	this.customerId = customerId;
+	this.customerName = customerName;
+	this.unit = unit;
+   }
+	int getCustomerId() {
+		return customerId;
+	}
+	void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	String getCustomerName() {
+		return customerName;
+	}
+	void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	int getUnit() {
+		return unit;
+	}
+	void setUnit(int unit) {
+		this.unit = unit;
+	}
+	static double getRateperunit() {
+		return rateperunit;
+	}
+	static void setRateperunit(double rateperunit) {
+		ElectricityBill.rateperunit = rateperunit;
+	}
+	double getTotalBillAmount() {
+		return TotalBillAmount;
+	}
+	void setTotalBillAmount(double totalBillAmount) {
+		TotalBillAmount = totalBillAmount;
+	}
+
+
+void display() {
+	            System.out.println("customer id is :"+this.customerId);
+				System.out.println("customer name is:"+this.customerName);
+				System.out.println("unit is:"+this.unit);
+				System.out.println("rateperunit is:"+this.rateperunit);
+				System.out.println("total Bill Amount:"+(TotalBillAmount=unit*rateperunit));
+
+}
+}
+
+class Testelectricity {
+
+	public static void main(String[] args) {
+	ElectricityBill e1=new ElectricityBill(1,"vaishnavi",50);
+	e1.display();
+	ElectricityBill e2=new ElectricityBill(2,"anjali",60);
+	e2.display();
+	ElectricityBill e3=new ElectricityBill(3,"ram",34);
+    e3.display();
+    
+    
+    ElectricityBill.setRateperunit(10);
+    e1.display();
+    e2.display();
+    e3.display();
+
+	}
+
+}
