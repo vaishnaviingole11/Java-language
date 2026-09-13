@@ -1,0 +1,208 @@
+package polymorphsm;
+class Employee{
+	int id;
+	String name;
+	double salary;
+	
+	Employee() {
+		this.id = 0;
+		this.name = "Not Define";
+		this.salary = 0;
+		System.out.println("Default Constructor of Employee");
+	}
+	
+	Employee(int id, String name, double salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+		System.out.println("Paramiterized Constructor of Employee");
+	}
+
+	int getid() {
+		return id;
+	}
+
+	void setid(int id) {
+		id = id;
+	}
+
+	String getname() {
+		return name;
+	}
+
+	void setEmp_name(String name) {
+		name = name;
+	}
+
+	double getSalary() {
+		return salary;
+	}
+
+	void setSalary(double salary) {
+		this.salary = salary;
+	}
+	
+	double calSalary() {
+		System.out.println("calSal of HR");
+		return this.salary;
+	}
+	
+	
+	
+	void display() {
+		System.out.println("Employee ID: "+this.id);
+		System.out.println("Employee  Name: "+this.name);
+		System.out.println("Salary: "+this.salary);
+	}
+}//class Employee ends here
+
+class Admin extends Employee{ 
+	 double allowence;
+	 
+	 Admin() {
+			super();//calling Employee class by default constructor
+			this.allowence = 0;
+			System.out.println("Default Constructor of Admin");
+			}
+
+	Admin(int id, String name, double salary,double allowence) {
+		super(id, name, salary );//calling superclass (Employee) paramiterized constructor
+		this.allowence = allowence;
+		System.out.println("Paramiterized Constructor of Admin");
+	} 
+ 
+	double getAllowence() {
+		return allowence;
+	}
+
+	void setAllowence(double allowence) {
+		this.allowence = allowence;
+	}
+	
+	double calSalary() {
+		System.out.println("calSal of Admin");
+		return this.salary+this.allowence;
+	}
+
+	
+	 
+	 void display() {
+		 super.display();
+		 System.out.println("Allowence: "+this.allowence);
+	 } 
+}//class Admin ends here
+
+class HR extends Employee{
+	double commission;
+	
+	HR() {
+		super();//calling Employee class by default constructor
+		this.commission = 0;
+		System.out.println("Default Constructor of HR");
+	}
+
+	HR(int id, String name, double salary,double commission) {
+		super(id,name,salary);//calling superclass (Employee) paramiterised constructor
+		this.commission = commission;
+		System.out.println("Paramiterized Constructor of HR");
+	}
+
+	double getCommission() {
+		return commission;
+	}
+
+	void setCommission(double commission) {
+		this.commission = commission;
+	}
+	
+	double calSalary() {
+		System.out.println("calSal of HR");
+		return this.salary+this.commission;
+	}
+	
+	
+	
+	void display() {
+		super.display();
+		System.out.println("Commission: "+this.commission);
+	}
+}//class HR ends here
+
+class SalesManeger extends Employee{
+	double target;
+	double incentive;
+	
+	SalesManeger() {
+		super();//calling Employee class by default constructor
+		this.target = 0;
+		this.incentive = 0;
+		System.out.println("Default Constructor of HR");
+	}
+	
+	SalesManeger(int id, String name, double salary,double target, double incentive) {
+		super(id,name,salary);//calling superclass (Employee) paramiterised constructor
+		this.target = target;
+		this.incentive = incentive;
+		System.out.println("Paramiterized Constructor of HR");
+	}
+
+	double getTarget() {
+		return target;
+	}
+
+	void setTarget(double target) {
+		this.target = target;
+	}
+
+	double getIncentive() {
+		return incentive;
+	}
+
+	void setIncentive(double incentive) {
+		this.incentive = incentive;
+	}
+	
+	double calSalary() {
+		System.out.println("calSal of SM");
+		return this.salary+this.incentive;
+	}
+	
+	
+	void display() {
+		super.display();
+		System.out.println("Target: "+this.target);
+		System.out.println("Incentive: "+this.incentive);
+	}
+}//class SalesManeger ends here
+
+class TestEmployee {
+
+	public static void main(String[] args) {
+		Employee[] arr;//references of array
+		arr=new Employee[3];//array of references
+		arr[0]=new Admin(102, "Devendra", 30000, 2000);
+		arr[1]=new SalesManeger(103,"Ghanshyam",34000,2500,5);
+		arr[2]=new HR(104,"Vinayak",35000,3000);
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.println(arr[i].calSalary());
+		
+	}
+}
+	public static void main1(String[] args) {
+		Employee e1;
+//		Employee e1=new Employee(1,"Aashu",45000);
+//		e1.display();
+		
+//		e1=new Admin(11,"Devendra",55000,5000);
+//		e1.display();
+		
+//	    e1=new HR(10,"Anuradha",45000,6000);
+//		e1.display();
+//		
+//		e1=new SalesManeger(101,"Gauri",33000,200000,12);
+//		e1.display();
+
+	}
+
+}

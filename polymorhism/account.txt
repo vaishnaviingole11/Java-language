@@ -1,0 +1,32 @@
+class Account {
+    void calculateInterest() {
+        System.out.println("Interest Calculation");
+    }
+}
+
+class SavingsAccount extends Account {
+    @Override
+    void calculateInterest() {
+        System.out.println("Savings Account Interest = 6%");
+    }
+}
+
+class CurrentAccount extends Account {
+    @Override
+    void calculateInterest() {
+        System.out.println("Current Account Interest = 4%");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Account a;
+
+        a = new SavingsAccount();
+        a.calculateInterest();
+
+        a = new CurrentAccount();
+        a.calculateInterest();
+    }
+}

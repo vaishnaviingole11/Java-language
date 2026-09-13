@@ -1,0 +1,32 @@
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle Starting");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car Starts With Key");
+    }
+}
+
+class Bike extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Bike Starts With Self Start");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Vehicle v;
+
+        v = new Car();
+        v.start();
+
+        v = new Bike();
+        v.start();
+    }
+}

@@ -1,0 +1,68 @@
+package p1;
+
+class Player {
+
+    String name;
+    int age;
+    String country;
+
+    Player(String name, int age, String country) {
+        this.name = name;
+        this.age = age;
+        this.country = country;
+    }
+
+    void display() {
+        System.out.println("Player Details");
+    }
+}
+
+class Cricketer extends Player {
+
+    int runs;
+
+    Cricketer(String name, int age, String country, int runs) {
+        super(name, age, country);
+        this.runs = runs;
+    }
+
+    @Override
+    void display() {
+        System.out.println("Cricketer Name : " + name);
+        System.out.println("Age : " + age);
+        System.out.println("Country : " + country);
+        System.out.println("Runs : " + runs);
+    }
+}
+
+class FootballPlayer extends Player {
+
+    int goals;
+
+    FootballPlayer(String name, int age, String country, int goals) {
+        super(name, age, country);
+        this.goals = goals;
+    }
+
+    @Override
+    void display() {
+        System.out.println("Football Player Name : " + name);
+        System.out.println("Age : " + age);
+        System.out.println("Country : " + country);
+        System.out.println("Goals : " + goals);
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Player p1 = new Cricketer("Virat", 36, "India", 14000);
+        Player p2 = new FootballPlayer("Messi", 39, "Argentina", 850);
+
+        p1.display();
+        System.out.println();
+
+        p2.display();
+    }
+}
