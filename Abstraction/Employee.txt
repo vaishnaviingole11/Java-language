@@ -1,0 +1,157 @@
+abstract class Employee {
+
+    int id;
+    String name;
+    double salary;
+
+    Employee() {
+        System.out.println("In Employee Constructor");
+        this.id = 0;
+        this.name = "Not Given";
+        this.salary = 10000;
+    }
+
+    Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    int getId() {
+        return id;
+    }
+
+    void setId(int id) {
+        this.id = id;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    double getSalary() {
+        return salary;
+    }
+
+    void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    abstract double calSalary();
+
+    void display() {
+        System.out.println(this);
+    }
+
+    public String toString() {
+        return "ID : " + id +
+               "\nName : " + name +
+               "\nSalary : " + salary;
+    }
+}
+
+// HR Class
+class HR extends Employee {
+
+    double commission;
+
+    HR() {
+        super();
+        commission = 5000;
+    }
+
+    HR(int id, String name, double salary, double commission) {
+        super(id, name, salary);
+        this.commission = commission;
+    }
+
+    double calSalary() {
+        return salary + commission;
+    }
+
+    public String toString() {
+        return super.toString() +
+               "\nCommission : " + commission +
+               "\nTotal Salary : " + calSalary();
+    }
+}
+
+// Admin Class
+class Admin extends Employee {
+
+    double allowance;
+
+    Admin() {
+        super();
+        allowance = 3000;
+    }
+
+    Admin(int id, String name, double salary, double allowance) {
+        super(id, name, salary);
+        this.allowance = allowance;
+    }
+
+    double calSalary() {
+        return salary + allowance;
+    }
+
+    public String toString() {
+        return super.toString() +
+               "\nAllowance : " + allowance +
+               "\nTotal Salary : " + calSalary();
+    }
+}
+
+// SalesManager Class
+class SalesManager extends Employee {
+
+    double incentive;
+    int target;
+
+    SalesManager() {
+        super();
+        System.out.println("In SalesManager Constructor");
+        incentive = 7000;
+        target = 50000;
+    }
+
+    SalesManager(int id, String name, double salary,
+                 double incentive, int target) {
+        super(id, name, salary);
+        this.incentive = incentive;
+        this.target = target;
+    }
+
+    double calSalary() {
+        return salary + incentive;
+    }
+
+    public String toString() {
+        return super.toString() +
+               "\nIncentive : " + incentive +
+               "\nTarget : " + target +
+               "\nTotal Salary : " + calSalary();
+    }
+}
+
+// Test Class
+class Test {
+
+    public static void main(String[] args) {
+
+        Employee[] arr = new Employee[3];
+
+        arr[0] = new Admin(102, "Devendra", 30000, 2000);
+        arr[1] = new SalesManager(103, "Ghanshyam", 34000, 2500, 5);
+        arr[2] = new HR(104, "Vinayak", 35000, 3000);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("\n-------------------");
+            System.out.println(arr[i]);
+        }
+    }
+}

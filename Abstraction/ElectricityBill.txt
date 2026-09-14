@@ -1,0 +1,110 @@
+package abstracton;
+
+import java.util.Scanner;
+
+abstract class ElectricityBill {
+
+    String customerName;
+    int units;
+
+    ElectricityBill(String customerName, int units) {
+        this.customerName = customerName;
+        this.units = units;
+    }
+
+    void showUsage() {
+        System.out.println("Customer : " + customerName);
+        System.out.println("Units : " + units);
+    }
+
+    abstract double calculateBill();
+
+    final void generateBill() {
+
+        double bill = calculateBill();
+
+        bill += bill * 0.05; // 5% tax
+        bill += 50;          // fixed charge
+
+        System.out.println("Final Bill : ₹" + bill);
+    }
+}
+
+// ResidentialBill
+class ResidentialBill extends ElectricityBill {
+
+    ResidentialBill(String customerName, int units) {
+        super(customerName, units);
+    }
+
+    double calculateBill() {
+
+        double bill;
+
+        if (units <= 100)
+            bill = units * 2.5;
+        else if (units <= 300)
+            bill = units * 3.5;
+        else
+            bill = units * 5;
+
+        if (units > 500)
+            bill += 150;
+
+        return bill;
+    }
+}
+
+// CommercialBill
+class CommercialBill extends ElectricityBill {
+
+    CommercialBill(String customerName, int units) {
+        super(customerName, units);
+    }
+
+    double calculateBill() {
+
+        double bill = units * 6.5;
+
+        if (units < 200)
+            bill = 1500;
+
+        if (units > 1000)
+            bill += bill * 0.08;
+
+        return bill;
+    }
+}
+
+// Main Class
+public class BillTest {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. Residential");
+        System.out.println("2. Commercial");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Customer Name : ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Units : ");
+        int units = sc.nextInt();
+
+        ElectricityBill bill;
+
+        if (choice == 1)
+            bill = new ResidentialBill(name, units);
+        else
+            bill = new CommercialBill(name, units);
+
+        bill.showUsage();
+        bill.generateBill();
+
+        sc.close();
+    }
+}
