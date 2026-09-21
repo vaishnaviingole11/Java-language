@@ -1,0 +1,21 @@
+class Employee {
+
+    static int count = 0;
+
+    Employee() {
+        count++;
+    }
+
+    static void totalEmployees() {
+        System.out.println("Total Employees = " + count);
+    }
+
+    public static void main(String[] args) {
+
+        new Employee();
+        new Employee();
+        new Employee();
+
+        totalEmployees();
+    }
+}
