@@ -1,0 +1,25 @@
+abstract class Payment {
+
+    abstract void pay();
+
+    void msg() {
+        System.out.println("Payment Started");
+    }
+}
+
+class UPI extends Payment {
+
+    void pay() {
+        System.out.println("UPI Payment");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        Payment p = new UPI();
+
+        p.msg();
+        p.pay();
+    }
+}
