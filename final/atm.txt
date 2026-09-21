@@ -1,0 +1,21 @@
+final class ATM {
+
+    void withdraw() {
+        System.out.println("Money Withdrawn");
+    }
+
+    void checkBalance() {
+        System.out.println("Balance = 5000");
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        ATM a = new ATM();
+
+        a.withdraw();
+        a.checkBalance();
+    }
+}

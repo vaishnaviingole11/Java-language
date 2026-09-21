@@ -1,0 +1,18 @@
+final class Employee {
+
+    int id = 101;
+    String name = "Vaishnavi";
+
+    void display() {
+        System.out.println(id + " " + name);
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Employee e = new Employee();
+        e.display();
+    }
+}

@@ -1,0 +1,15 @@
+final class Login {
+
+    void login() {
+        System.out.println("Login Successful");
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Login l = new Login();
+        l.login();
+    }
+}
